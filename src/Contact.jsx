@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <>
-      <h1>Pawan</h1>
+      <h1>contact Pawan</h1>
     </>
   );
 };
