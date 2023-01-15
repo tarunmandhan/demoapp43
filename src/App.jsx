@@ -1,23 +1,30 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./About";
 import Contact from "./Contact";
 import Error from "./Error";
+import Home from "./Home";
+import "./App.css";
+import MainHeader from "./MainHeader";
+import Services from "./Services";
+import User from "./User";
 
 const App = () => {
-  const Name = () => {
-    return <h1> this is Name page.</h1>;
-  };
   return (
     <>
-      <Routes>
-        <Route path="/" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/contact/Name" element={<Name />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainHeader />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/user/:fname/:lname" element={<User />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Error />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
-
 export default App;
